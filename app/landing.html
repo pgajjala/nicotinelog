@@ -10,42 +10,43 @@
   <body>
     <div id="app">
         <p>I want to cut down my nicotine consumption by <input v-model="percentRed" :placeholder='percentRed'>% in the next
-            <select>
+            <select v-model="time">
                 <section>
-                    <option selected v-if="time == 0">1 week</option>
-                    <option v-else>1 week</option>
+                    <option selected disabled v-if="time == 0" value=0>1 week</option>
+                    <option v-else value=0>1 week</option>
                 </section>
                 <section>
-                        <option selected v-if="time == 1">2 weeks</option>
-                        <option v-else>1 week</option>
+                        <option selected disabled v-if="time == 1" value=1>2 weeks</option>
+                        <option v-else value=1> 1 week</option>
                 </section>
                 <section>
-                        <option selected v-if="time == 2">1 month</option>
-                        <option v-else>1 month</option>
+                        <option selected disabled v-if="time == 2" value=2>1 month</option>
+                        <option v-else value=2>1 month</option>
                 </section>
                 <section>
-                        <option selected v-if="time == 3">3 months</option>
-                        <option v-else>3 months</option>
+                        <option selected disabled v-if="time == 3" value=3>3 months</option>
+                        <option v-else value=3> 3 months</option>
                 </section>
                 <section>
-                    <option selected v-if="time == 4">6 months</option>
-                    <option v-else>6 months</option>
+                    <option selected disabled v-if="time == 4" value=4>6 months</option>
+                    <option v-else value=4>6 months</option>
                 </section>
                 <section>
-                    <option selected v-if="time == 5">1 year</option>
-                    <option v-else>1 year</option>
+                    <option selected disabled v-if="time == 5" value=5>1 year</option>
+                    <option v-else value=5>1 year</option>
                 </section>
             </select>
+            <p>{{ time }}</p>
         </p>
         <p>Right now I most often use a
-            <select>
+            <select v-model="device">
                 <section>
-                    <option selected v-if="device == 0">Juul</option>
-                    <option v-else>Juul</option>
+                    <option selected v-if="device == 0" value=0>Juul</option>
+                    <option v-else value=0>Juul</option>
                 </section>
                 <section>
-                    <option selected v-if="device == 1">Cigarette</option>
-                    <option v-else>Cigarette</option>
+                    <option selected v-if="device == 1" value=1>Cigarette</option>
+                    <option v-else value=1>Cigarette</option>
                 </section>
             </select>
         </p>
