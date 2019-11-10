@@ -7,11 +7,19 @@
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "@fullcalendar/vue": "^4.3.1",
-    "vue.js": "^0.3.2"
+    "vue.js": "^0.3.2",
+    "@koa/cors": "^3.0.0",
+    "fetch": "^1.1.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa.js": "^1.0.0",
+    "yarn": "^1.19.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node src/web-server.js"	
   },
   "repository": {
     "type": "git",
