@@ -55,7 +55,7 @@ function fill_table(month, month_length, indexMonth) {
           day +
           "'class='c-cal__cel'><p>" +
           day +
-          "</p><button id ='hi' onClick = counter(this.id)>0</button></div>"
+          "</p><button id ='2019-" + month + "-" + day + "'" + "onClick = counter(this.id)>0</button></div>"
       );
       day++;
     }
@@ -73,7 +73,7 @@ function fill_table(month, month_length, indexMonth) {
               day +
               "'class='c-cal__cel'><p>" +
               day +
-              "</p><button id ='hi' onClick = counter(this.id)>0</button></div>"
+              "</p><button id ='2019-" + month + "-" + day + "'" + "onClick = counter(this.id)>0</button></div>"
           );
           day++;
         } else {
@@ -84,7 +84,7 @@ function fill_table(month, month_length, indexMonth) {
               day +
               "' class='c-cal__cel'><p>" +
               day +
-              "</p><button id ='hi' onClick = counter(this.id)>0</button></div>"
+              "</p><button id ='2019-" + month + "-" + day + "'" + "onClick = counter(this.id)>0</button></div>"
           );
           day++;
         }
@@ -142,10 +142,13 @@ function fill_table(month, month_length, indexMonth) {
 </header>
 <div class="wrapper">
   <div class="c-calendar">
-    <div class="c-calendar__style c-aside">
+    <div class="c-calendar__style c-aside">x
       <a class="c-add o-btn js-event__add" href="javascript:;">add event <span class="fa fa-plus"></span></a>
       <div class="c-aside__day">
         <span class="c-aside__num"></span> <span class="c-aside__month"></span>
+      </div>
+      <div >
+        <h2 id="limit"></h2>
       </div>
 	  <div id ="add-input">
         <h2>Notes on Today's Usage</h2>
@@ -889,7 +892,7 @@ function fillEventSidebar(self) {
       $(".c-aside__eventList").append(
         "<p class='c-aside__event c-aside__event--important'>" +
         thisName +
-        " <span> • " +
+        " <span> ï¿½ " +
         thisNotes +
         "</span></p>"
       );
@@ -898,7 +901,7 @@ function fillEventSidebar(self) {
       $(".c-aside__eventList").append(
         "<p class='c-aside__event c-aside__event--birthday'>" +
         thisName +
-        " <span> • " +
+        " <span> ï¿½ " +
         thisNotes +
         "</span></p>"
       );
@@ -907,7 +910,7 @@ function fillEventSidebar(self) {
       $(".c-aside__eventList").append(
         "<p class='c-aside__event c-aside__event--festivity'>" +
         thisName +
-        " <span> • " +
+        " <span> ï¿½ " +
         thisNotes +
         "</span></p>"
       );
@@ -916,7 +919,7 @@ function fillEventSidebar(self) {
       $(".c-aside__eventList").append(
         "<p class='c-aside__event'>" +
         thisName +
-        " <span> • " +
+        " <span> ï¿½ " +
         thisNotes +
         "</span></p>"
       );
@@ -1018,11 +1021,59 @@ moveNext(indexMonth - 1, false);
 $(".c-aside__num").text(day);
 $(".c-aside__month").text(monthText[month - 1]);
 
+//taw
+var taw = 6;
+
+//tad
+var tad = 10;
+
+//percent
+var percent = 0.25;
+
+//weeks
+var time = 1;
+var weeks;
+if (time == 0) {
+  weeks = 1;
+} else if (time == 1) {
+  weeks = 2;
+} else if (time == 2) {
+  weeks = 4;
+} else if (time == 3) {
+  weeks = 12;
+} else if (time == 4) {
+  weeks = 26
+} else if (time == 5) {
+  weeks = 52;
+}
+desiredNum();
+function stuff() {
+  var init = taw * tad;
+  var desiredVal = (init * percent);
+  var current = desiredVal;
+  var extra = desiredVal % 7;
+  var thing = parseInt(desiredVal/7);
+  return thing;
+}
+function desiredNum() {
+  document.getElementById("limit").innerHTML = "Desired Limit: " + stuff();
+  // return desiredVal/7;
+}
 //add counter
-var count = 0;
+//var count = 0;
 function counter(clicked_id) {
+  count = parseInt(document.getElementById(clicked_id).innerHTML);
+  console.log("time to count"); 
   count +=1; 
-  document.getElementbyId(clicked_id).innerHTML = count;
+  console.log(clicked_id);
+  document.getElementById(clicked_id).innerHTML = count;  
+  if (count > stuff()) {
+    document.getElementById(clicked_id).style.color = 'red';
+  } else if (count < stuff()) {
+    document.getElementById(clicked_id).style.color = 'green';
+  } else if (count == stuff()) {
+    document.getElementById(clicked_id).style.color = 'black';
+  }
 }
 
 </script>
