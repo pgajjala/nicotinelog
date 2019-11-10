@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Nicotine Log</title>
+    <meta charset="utf-8" />
+	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.1.9/dist/vuetify.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
+	
+	<style>
+      @font-face { font-family: ; src: url(https://fonts.googleapis.com/css?family=Material+Icons); } 
+	</style>
+	<!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.1.9/dist/vuetify.min.js"></script>
+  </head>
+  <body>
+	<div id="app">
+    <v-sheet height="500">
+      <v-calendar
+        type="month"
+        now="2019-01-08"
+        value="2019-01-08"
+        :events="events"
+      ></v-calendar>
+    </v-sheet>
+</div>
+
+new Vue({
+  el: '#app',
+  vuetify: new Vuetify(),
+  data: () => ({
+   
+
+  }),
+})
+</script>
+  </body>
+</html>
