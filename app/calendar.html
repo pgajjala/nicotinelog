@@ -9,6 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.1.9/dist/vuetify.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/vue-router@3.1.2/dist/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
   </head>
   <body>
 <script>
@@ -144,6 +147,20 @@ function fill_table(month, month_length, indexMonth) {
       <div class="c-aside__day">
         <span class="c-aside__num"></span> <span class="c-aside__month"></span>
       </div>
+	  <div id ="add-input">
+        <h2>Notes on Today's Usage</h2>
+        <form>
+            <label>Reasons for Use:</label>
+            <input type="text" v-model="title" required/>
+            <label>Location of Use:</label>
+            <textarea v-model="content"></textarea>
+        </form>
+        <div id ="app">
+            <h3>Preview Notes</h3>
+            <p>Reasons for Use: {{ title }} </p>
+            <p>Location of Use:  {{ content }}</p>
+        </div>
+		</div>
       <div class="c-aside__eventList">
       </div>
     </div>
